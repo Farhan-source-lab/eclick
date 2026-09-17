@@ -3,13 +3,13 @@ import { FaqItem } from '../types';
 export const faqData: FaqItem[] = [
   {
     category: 'general',
-    q: 'What services does Aeth Digital offer?',
-    a: 'We offer a full range of digital marketing and development services, including custom website design, SEO, social media marketing, paid advertising, e-commerce solutions, mobile app development, commercial videography, and AI automations. Our goal is to build systems that help your business scale efficiently.'
+    q: 'What services does Eclick Tech Solutions offer?',
+    a: 'We offer end-to-end technology and creative solutions, including Software Development, AI Solutions (Gen AI, Agentic AI, AI Automations, Custom & Enterprise AI, and AI Analytics), Digital Transformation, Result-Driven Digital Marketing (SEO, SMM, Lead Generation, Content & Branding), Graphic Design & Brand Identity, and Video Editing & Motion Graphics.'
   },
   {
     category: 'general',
-    q: 'Who does Aeth Digital work with?',
-    a: 'We primarily work with startups and service-based businesses, including trade contractors, property management firms, e-commerce brands, healthcare clinics, and sports leagues. Whether you are launching from scratch or looking to dominate your regional market, we tailor our approach to your exact growth goals.'
+    q: 'Who does Eclick Tech Solutions work with?',
+    a: 'We partner with startups, growing businesses, and enterprises across diverse industries worldwide—including Saudisoft, Techno Paints, Amana, Boxoo, Pfizer, AIM United Global, GDH Academy, Redesign Dental Clinics, and WallCraft Panels. Operating across India, USA, KSA, and UAE, we tailor every solution to our clients\' unique growth targets.'
   },
   {
     category: 'pricing',

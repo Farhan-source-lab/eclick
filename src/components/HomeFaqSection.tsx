@@ -7,24 +7,24 @@ interface FaqItem {
 
 const FAQ_ITEMS: FaqItem[] = [
   {
-    question: 'What services does Aeth Digital offer?',
-    answer: 'We offer a full range of digital marketing services, including website design and development, SEO, social media marketing, e-commerce solutions, and AI automations. Our goal is to build systems that help your business grow efficiently.',
+    question: "What services does Eclick Tech Solutions offer?",
+    answer: "We offer end-to-end technology and creative solutions, including Software Development, AI Solutions (Gen AI, Agentic AI, AI Automations, Custom & Enterprise AI, and AI Analytics), Digital Transformation, Result-Driven Digital Marketing (SEO, SMM, Lead Generation, Content & Branding), Graphic Design & Brand Identity, and Video Editing & Motion Graphics.",
   },
   {
-    question: 'Who does Aeth Digital work with?',
-    answer: 'We primarily work with startups and service-based businesses, including contractors, property management companies, e-commerce brands, and local businesses. We also work with sports leagues and tournaments, helping them build professional platforms for registration, scheduling, and growth. Whether you’re just starting or looking to scale, we tailor our approach to your goals.',
+    question: "Who does Eclick Tech Solutions work with?",
+    answer: "We partner with startups, growing businesses, and enterprises across diverse industries worldwide—including Saudisoft, Techno Paints, Amana, Boxoo, Pfizer, AIM United Global, GDH Academy, Redesign Dental Clinics, and WallCraft Panels. Operating across India, USA, KSA, and UAE, we tailor every solution to our clients' unique growth targets.",
   },
   {
-    question: 'How much do you charge?',
-    answer: 'Our pricing depends on the scope of your project. As a Toronto digital marketing agency, we create custom packages based on your needs, whether it’s website design, SEO, social media marketing, or a combination of services.',
+    question: "How do your AI solutions and automations help businesses?",
+    answer: "Our AI services empower businesses to automate repetitive workflows, improve brand visibility, enhance customer engagement, and gain predictive business intelligence. From intelligent RevOps copilots and AI lead threat intelligence to custom agentic workflows, we build systems that drive measurable ROI and operational scale.",
   },
   {
-    question: 'How do you communicate?',
-    answer: 'We believe in clear, consistent communication. You’ll have direct access to our team through email, phone, or scheduled meetings, and we provide regular updates to keep you informed throughout the entire process.',
+    question: "How do you communicate during a project?",
+    answer: "We believe in transparent communication, dedicated account management, and long-term support. You have direct access to our core specialists with regular milestone reviews, status demos, and collaborative communication tailored to your timezone across India, USA, KSA, and UAE.",
   },
   {
-    question: 'I have a bigger project. Can you handle it?',
-    answer: 'Yes. We have the experience and systems in place to manage projects of all sizes, from small business websites to large-scale digital solutions. Our structured approach ensures everything is delivered smoothly, on time, and to a high standard.',
+    question: "I have a complex or large-scale enterprise project. Can you handle it?",
+    answer: "Yes. Our engineering and creative teams have the technical infrastructure, high-concurrency cloud expertise, and enterprise design capabilities to build large-scale web platforms, custom AI systems, and multi-database architectures with maximum security and reliability.",
   },
 ];
 

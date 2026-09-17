@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 const SERVICES = [
-  'Web Design',
-  'SEO',
-  'E-Commerce Solutions',
-  'Social Media Marketing',
-  'Mobile Development',
-  'AI/Automation',
-  'Videography',
-  'Paid Ads',
+  'AI Solutions',
+  'Software Development',
+  'Digital Marketing & SEO',
+  'Graphic Design & Branding',
+  'Digital Transformation',
+  'Video Production & Editing',
+  'Business Intelligence',
+  'AI Automations',
 ];
 
 const BUDGETS = [
@@ -27,7 +27,7 @@ interface HomeContactSectionProps {
 
 export const HomeContactSection: React.FC<HomeContactSectionProps> = ({
   title = "Let's create something wonderful",
-  subtitle = "Bring your idea to life.",
+  subtitle = "Bring your idea to life. We welcome inquiries, collaborations, and project discussions.",
 }) => {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [selectedBudget, setSelectedBudget] = useState<string>('');
@@ -113,7 +113,7 @@ export const HomeContactSection: React.FC<HomeContactSectionProps> = ({
                 <a 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  href="https://www.linkedin.com/company/aethdigital/" 
+                  href="https://www.linkedin.com" 
                   aria-label="LinkedIn"
                   className="transition-opacity hover:opacity-80"
                 >
@@ -127,22 +127,44 @@ export const HomeContactSection: React.FC<HomeContactSectionProps> = ({
                 </a>
               </div>
 
-              {/* Direct Email */}
-              <a 
-                href="mailto:info@aethdigital.com" 
-                className="flex items-center gap-3 group text-sm sm:text-base"
-              >
-                <img 
-                  alt="" 
-                  loading="lazy" 
-                  width="22" 
-                  height="22" 
-                  src="/brand/icon-send.png" 
-                />
-                <span className="font-display text-[#eee6c1] underline decoration-[#eee6c1]/40 group-hover:decoration-[#ffaa01] transition-colors">
-                  info@aethdigital.com
-                </span>
-              </a>
+              {/* Direct Inquiries & Locations */}
+              <div className="flex flex-col gap-3">
+                <a 
+                  href="mailto:info@eclicktechsolutions.com" 
+                  className="flex items-center gap-3 group text-sm sm:text-base"
+                >
+                  <img 
+                    alt="" 
+                    loading="lazy" 
+                    width="22" 
+                    height="22" 
+                    src="/brand/icon-send.png" 
+                  />
+                  <span className="font-display text-[#eee6c1] underline decoration-[#eee6c1]/40 group-hover:decoration-[#ffaa01] transition-colors">
+                    info@eclicktechsolutions.com
+                  </span>
+                </a>
+
+                {/* Phone Numbers from Portfolio */}
+                <div className="mt-2 flex flex-col gap-1 text-xs sm:text-sm text-[#b7af98]">
+                  <p className="flex items-center gap-2">
+                    <span className="text-[#ffaa01] font-semibold">IND:</span>
+                    <a href="tel:+918919248052" className="hover:text-[#eee6c1] transition-colors">+91 89192 48052</a>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <span className="text-[#ffaa01] font-semibold">KSA:</span>
+                    <a href="tel:+966507701476" className="hover:text-[#eee6c1] transition-colors">+966 50 770 1476</a>
+                  </p>
+                </div>
+
+                {/* Global Operating Presence */}
+                <div className="mt-3 pt-3 border-t border-white/10">
+                  <p className="text-[11px] uppercase tracking-widest text-[#ffaa01] font-semibold">Operating Across</p>
+                  <p className="mt-1 text-xs font-medium tracking-wide text-[#eee6c1]/90">
+                    INDIA &nbsp;•&nbsp; USA &nbsp;•&nbsp; UAE &nbsp;•&nbsp; KSA
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 

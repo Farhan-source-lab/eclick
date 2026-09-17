@@ -1,5 +1,4 @@
 import React from 'react';
-import { servicesData } from '../data/servicesData';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -7,104 +6,95 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="border-t border-(--color-border) bg-(--color-surface)/50 px-6 pt-16 pb-12 sm:px-12 lg:px-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-5">
-          {/* Brand Col */}
-          <div className="lg:col-span-2">
-            <a href="/" className="flex items-center gap-2.5">
+    <footer className="bg-[#eee6c1] text-[#141416] transition-colors">
+      <div className="px-6 py-14 sm:px-16 lg:px-24 max-w-7xl mx-auto">
+        {/* Heading from Reference Site */}
+        <h2 className="mb-10 font-display text-3xl leading-[1.2] sm:text-4xl lg:w-3/5 lg:text-[48px] text-[#141416]">
+          Is there a fascinating project brewing in your mind?
+        </h2>
+
+        {/* Inquiries & Navigation Links */}
+        <div className="flex flex-col gap-6 border-b border-[#141416]/20 pb-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+            <a 
+              href="mailto:info@eclicktechsolutions.com?subject=Project%20request" 
+              className="flex items-center gap-2 shrink-0 group"
+            >
               <img 
-                src="/brand/letter-a-logo.png" 
-                alt="AETH Digital" 
-                className="h-9 w-auto object-contain" 
+                alt="" 
+                loading="lazy" 
+                width="22" 
+                height="22" 
+                src="/brand/icon-send.png" 
+                className="brightness-0" 
               />
-              <span className="font-display text-lg font-bold tracking-widest text-foreground">
-                AETH DIGITAL<span className="text-(--color-cta)">.</span>
+              <span className="font-display text-sm sm:text-base text-[#141416] underline decoration-[#141416]/40 group-hover:decoration-[#ffaa01] transition-colors">
+                info@eclicktechsolutions.com
               </span>
             </a>
-
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-foreground/70">
-              A premium digital agency specializing in high-converting web platforms, algorithmic SEO, custom mobile applications, and enterprise AI automation.
-            </p>
-
-            {/* Social Icons */}
-            <div className="mt-6 flex items-center gap-3">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="rounded-full p-1 opacity-70 transition-opacity hover:opacity-100">
-                <img src="/brand/icon-instagram-circle.svg" alt="Instagram" className="h-6 w-6" />
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="rounded-full p-1 opacity-70 transition-opacity hover:opacity-100">
-                <img src="/brand/icon-facebook-circle.svg" alt="Facebook" className="h-6 w-6" />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="rounded-full p-1 opacity-70 transition-opacity hover:opacity-100">
-                <img src="/brand/icon-linkedin-circle.svg" alt="LinkedIn" className="h-6 w-6" />
-              </a>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="rounded-full p-1 opacity-70 transition-opacity hover:opacity-100">
-                <img src="/brand/icon-youtube-circle.svg" alt="YouTube" className="h-6 w-6" />
-              </a>
+            <span className="hidden sm:inline text-[#141416]/30">•</span>
+            <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-[#141416]/75">
+              <a href="tel:+918919248052" className="hover:text-[#141416] transition-colors">+91 89192 48052 (IND)</a>
+              <span>•</span>
+              <a href="tel:+966507701476" className="hover:text-[#141416] transition-colors">+966 50 770 1476 (KSA)</a>
             </div>
           </div>
 
-          {/* Services Links */}
-          <div>
-            <h4 className="font-display text-xs uppercase tracking-widest text-(--color-cta) mb-4">
-              Services
-            </h4>
-            <ul className="flex flex-col gap-2.5 text-sm text-foreground/80">
-              {servicesData.slice(0, 6).map((s) => (
-                <li key={s.slug}>
-                  <a href={`/services/${s.slug}`} className="transition-colors hover:text-(--color-cta)">
-                    {s.shortTitle}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <nav aria-label="Footer" className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <a className="font-display text-xs text-[#141416] uppercase hover:opacity-60 transition-opacity" href="/">Home</a>
+            <a className="font-display text-xs text-[#141416] uppercase hover:opacity-60 transition-opacity" href="/services/ai-automations">Services</a>
+            <a className="font-display text-xs text-[#141416] uppercase hover:opacity-60 transition-opacity" href="/projects">Projects</a>
+            <a className="font-display text-xs text-[#141416] uppercase hover:opacity-60 transition-opacity" href="/about">About</a>
+            <a className="font-display text-xs text-[#141416] uppercase hover:opacity-60 transition-opacity" href="/blog">Blog</a>
+            <a className="font-display text-xs text-[#141416] uppercase hover:opacity-60 transition-opacity" href="/contact">Contact us</a>
+          </nav>
+        </div>
 
-          {/* Company Links */}
-          <div>
-            <h4 className="font-display text-xs uppercase tracking-widest text-(--color-cta) mb-4">
-              Company
-            </h4>
-            <ul className="flex flex-col gap-2.5 text-sm text-foreground/80">
-              <li><a href="/about" className="transition-colors hover:text-(--color-cta)">About Us</a></li>
-              <li><a href="/projects" className="transition-colors hover:text-(--color-cta)">Case Studies</a></li>
-              <li><a href="/locations" className="transition-colors hover:text-(--color-cta)">Locations</a></li>
-              <li><a href="/faq" className="transition-colors hover:text-(--color-cta)">FAQ</a></li>
-              <li><a href="/blog" className="transition-colors hover:text-(--color-cta)">Insights</a></li>
-              <li><a href="/contact" className="transition-colors hover:text-(--color-cta)">Contact</a></li>
-            </ul>
-          </div>
-
-          {/* Contact Details & Back to Top */}
-          <div className="flex flex-col justify-between">
-            <div>
-              <h4 className="font-display text-xs uppercase tracking-widest text-(--color-cta) mb-4">
-                Inquiries
-              </h4>
-              <p className="text-sm text-foreground/80">contact@aethdigital.com</p>
-              <p className="mt-1 text-sm text-foreground/60">+1 (647) 948-8318</p>
-              <p className="mt-2 text-xs text-foreground/60">Toronto, Ontario, Canada</p>
-            </div>
-
-            <button
-              onClick={scrollToTop}
-              type="button"
-              className="mt-6 flex items-center gap-2 self-start rounded-full border border-(--color-border) px-4 py-2 text-xs font-display uppercase tracking-wider text-foreground transition-all hover:border-(--color-cta) hover:text-(--color-cta)"
-            >
-              <span>Back to top</span>
-              <img src="/brand/icon-scroll-top.svg" alt="" className="h-3.5 w-3.5" />
-            </button>
-          </div>
+        {/* Large E-Click Brand Logo in place of large text */}
+        <div className="py-10 sm:py-14 flex items-center justify-center select-none">
+          <img 
+            src="/brand/eclick-logo.png" 
+            alt="Eclick Tech Solutions" 
+            className="h-24 sm:h-36 md:h-48 lg:h-56 w-auto max-w-[85%] object-contain brightness-0 opacity-90 hover:opacity-100 transition-opacity" 
+          />
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-(--color-border) pt-8 text-xs text-foreground/60 sm:flex-row">
-          <p>© {new Date().getFullYear()} AETH Digital Inc. All rights reserved.</p>
-
-          <div className="flex items-center gap-6">
-            <a href="/privacy" className="hover:underline">Privacy Policy</a>
-            <a href="/terms" className="hover:underline">Terms of Service</a>
+        <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between pt-2 text-[#141416]">
+          {/* Social Links */}
+          <div className="flex items-center gap-4">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
+              <img alt="Facebook" width="20" height="20" src="/brand/icon-facebook-circle.svg" className="brightness-0" />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
+              <img alt="Instagram" width="20" height="20" src="/brand/icon-instagram-circle.svg" className="brightness-0" />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
+              <img alt="LinkedIn" width="20" height="20" src="/brand/icon-linkedin-circle.svg" className="brightness-0" />
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
+              <img alt="YouTube" width="20" height="20" src="/brand/icon-youtube-circle.svg" className="brightness-0" />
+            </a>
           </div>
+
+          {/* Copyright & Legal */}
+          <div className="flex flex-col items-center gap-2 text-xs sm:text-sm text-[#141416]/70 sm:flex-row sm:gap-6 text-center sm:text-left">
+            <p>© {new Date().getFullYear()} ECLICK TECH SOLUTIONS. All rights reserved</p>
+            <div className="flex items-center gap-4">
+              <a className="hover:text-[#141416] transition-colors" href="/privacy">Privacy Policy</a>
+              <a className="hover:text-[#141416] transition-colors" href="/terms">Terms &amp; Conditions</a>
+            </div>
+          </div>
+
+          {/* Scroll to Top */}
+          <button 
+            onClick={scrollToTop} 
+            type="button"
+            className="flex items-center gap-2 p-1 text-[#141416] hover:opacity-60 transition-opacity cursor-pointer"
+          >
+            <span className="font-display text-xs uppercase">Scroll top</span>
+            <img alt="" width="15" height="15" src="/brand/icon-scroll-top.svg" className="brightness-0" />
+          </button>
         </div>
       </div>
     </footer>
