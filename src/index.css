@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #141416;
+  --color-surface: #1e1e22;
+  --color-surface-2: #26262b;
+  --color-card: #202024;
+  --color-text: #eee6c1;
+  --color-text-muted: #b7af98;
+  --color-border: #2e2e34;
+  --color-accent: #c9b98c;
+  --color-accent-soft: #b0a381;
+  --color-accent-contrast: #141416;
+  --color-cta: #ffaa01;
+  --color-cta-contrast: #141416;
+  --color-ink: #141416;
+  --color-ink-contrast: #eee6c1;
+  --color-ink-border: #eee6c133;
+  --font-display: 'Krona One', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Exo 2', ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}
+
+:root[data-theme='light'] {
+  --color-bg: #f8f6f0;
+  --color-surface: #ffffff;
+  --color-surface-2: #f0ece1;
+  --color-card: #ebe5d5;
+  --color-text: #1a1a1c;
+  --color-text-muted: #6b665c;
+  --color-border: #ded8c7;
+  --color-accent: #7a6b44;
+  --color-accent-soft: #b0a381;
+  --color-accent-contrast: #ffffff;
+  --color-cta: #ffaa01;
+  --color-cta-contrast: #1a1a1c;
+  --color-ink: #1a1a1c;
+  --color-ink-contrast: #f8f6f0;
+  --color-ink-border: #1a1a1c33;
+}
+
+:root[data-theme='dark'] {
+  --color-bg: #141416;
+  --color-surface: #1e1e22;
+  --color-surface-2: #26262b;
+  --color-card: #202024;
+  --color-text: #eee6c1;
+  --color-text-muted: #b7af98;
+  --color-border: #2e2e34;
+  --color-accent: #c9b98c;
+  --color-accent-soft: #b0a381;
+  --color-accent-contrast: #141416;
+  --color-cta: #ffaa01;
+  --color-cta-contrast: #141416;
+  --color-ink: #141416;
+  --color-ink-contrast: #eee6c1;
+  --color-ink-border: #eee6c133;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --color-bg: #141416;
+    --color-surface: #1e1e22;
+    --color-surface-2: #26262b;
+    --color-card: #202024;
+    --color-text: #eee6c1;
+    --color-text-muted: #b7af98;
+    --color-border: #2e2e34;
+    --color-accent: #c9b98c;
+    --color-accent-soft: #b0a381;
+    --color-accent-contrast: #141416;
+    --color-cta: #ffaa01;
+    --color-cta-contrast: #141416;
+    --color-ink: #141416;
+    --color-ink-contrast: #eee6c1;
+    --color-ink-border: #eee6c133;
+  }
+}
+
+html, body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  overflow-x: clip;
+  scroll-behavior: auto;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Utilities from Original Site */
+.text-shadow-cta {
+  text-shadow: 0px 0px 17.7px #ffaa01;
+}
+
+.mission-pill {
+  border-radius: 830px;
+}
+
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: 50s linear infinite marquee-left;
+}
+
+.animate-marquee-right {
+  animation: 50s linear infinite marquee-right;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
