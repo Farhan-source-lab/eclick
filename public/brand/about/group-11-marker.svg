@@ -1,7 +1,7 @@
 <svg width="18" height="208" viewBox="0 0 18 208" fill="none" xmlns="http://www.w3.org/2000/svg">
 <line x1="8.9502" y1="9.69995" x2="8.95019" y2="207.7" stroke="url(#paint0_linear_2135_322)" stroke-width="0.5"/>
 <g filter="url(#filter0_f_2135_322)">
-<circle cx="8.7002" cy="8.69995" r="3" fill="#FF7301"/>
+<circle cx="8.7002" cy="8.69995" r="3" fill="#88E788"/>
 </g>
 <circle cx="8.7002" cy="8.69995" r="3" fill="url(#paint1_radial_2135_322)"/>
 <defs>
@@ -11,12 +11,12 @@
 <feGaussianBlur stdDeviation="2.85" result="effect1_foregroundBlur_2135_322"/>
 </filter>
 <linearGradient id="paint0_linear_2135_322" x1="8.2002" y1="9.69995" x2="8.20019" y2="207.7" gradientUnits="userSpaceOnUse">
-<stop stop-color="#FFCB62"/>
-<stop offset="1" stop-color="#FFCB62" stop-opacity="0"/>
+<stop stop-color="#88E788" stop-opacity="0.85"/>
+<stop offset="1" stop-color="#88E788" stop-opacity="0"/>
 </linearGradient>
 <radialGradient id="paint1_radial_2135_322" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(8.7002 8.69995) rotate(-90) scale(3)">
-<stop stop-color="#FFAA01"/>
-<stop offset="1" stop-color="#FF7301"/>
+<stop stop-color="#e2fde2"/>
+<stop offset="1" stop-color="#88E788"/>
 </radialGradient>
 </defs>
 </svg>

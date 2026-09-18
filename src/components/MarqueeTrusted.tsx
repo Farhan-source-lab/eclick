@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollReveal } from './ScrollReveal';
 
 interface LogoItem {
   id: string;
@@ -91,13 +92,14 @@ export const MarqueeTrusted: React.FC = () => {
   const row2List = [...ROW_2_LOGOS, ...ROW_2_LOGOS, ...ROW_2_LOGOS, ...ROW_2_LOGOS];
 
   return (
-    <section className="py-16 overflow-hidden bg-[#141416]" aria-labelledby="trusted-by-heading">
-      <p 
-        id="trusted-by-heading" 
-        className="mb-10 text-center font-display text-sm tracking-[0.2em] text-[#b7af98] uppercase"
-      >
-        Trusted by
-      </p>
+    <section className="py-20 overflow-hidden bg-[#0a0a0a]" aria-labelledby="trusted-by-heading">
+      <ScrollReveal>
+        <p 
+          id="trusted-by-heading" 
+          className="mb-10 text-center font-display text-sm tracking-[0.2em] text-[#88E788] uppercase"
+        >
+          Trusted by
+        </p>
 
       <div className="flex flex-col gap-6 select-none">
         {/* ROW 1: Moves smoothly to the left */}
@@ -150,6 +152,7 @@ export const MarqueeTrusted: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
+    </ScrollReveal>
+  </section>
   );
 };

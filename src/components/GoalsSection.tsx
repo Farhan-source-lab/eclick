@@ -15,56 +15,60 @@ interface GoalItem {
 
 const GOAL_ITEMS: GoalItem[] = [
   {
-    icon: "/brand/icon-code-alt.svg",
+    icon: "/brand/icon-code-alt-green.svg",
     label: "Results-Driven\nDevelopment",
-    position: "top-14 md:top-16 lg:top-20 left-[12%] md:left-[16%] lg:left-[20%]",
-    outX: -85,
-    outY: -42
+    position: "top-4 sm:top-8 md:top-14 lg:top-16 left-[2%] sm:left-[6%] md:left-[10%] lg:left-[14%]",
+    outX: -70,
+    outY: -30
   },
   {
-    icon: "/brand/icon-bar-chart-alt.svg",
+    icon: "/brand/icon-bar-chart-alt-green.svg",
     label: "Performance-\nBacked Strategy",
-    position: "bottom-14 md:bottom-16 lg:bottom-20 left-[12%] md:left-[16%] lg:left-[20%]",
-    outX: -105,
-    outY: 42
+    position: "bottom-4 sm:bottom-8 md:bottom-14 lg:bottom-16 left-[2%] sm:left-[6%] md:left-[10%] lg:left-[14%]",
+    outX: -80,
+    outY: 30
   },
   {
-    icon: "/brand/icon-globe.svg",
+    icon: "/brand/icon-globe-green.svg",
     label: "Brand-Centered\nOnline Identity",
-    position: "top-1/2 left-[8%] md:left-[10%] lg:left-[14%]",
+    position: "top-1/2 left-[1%] sm:left-[3%] md:left-[6%] lg:left-[9%]",
     baseTransform: "translateY(-50%)",
-    outX: -115,
+    outX: -90,
     outY: 0
   },
   {
-    icon: "/brand/icon-map.svg",
+    icon: "/brand/icon-map-green.svg",
     label: "Targeted Local\nGrowth",
-    position: "top-14 md:top-16 lg:top-20 right-[12%] md:right-[16%] lg:right-[20%]",
-    outX: 115,
-    outY: -42
+    position: "top-4 sm:top-8 md:top-14 lg:top-16 right-[2%] sm:right-[6%] md:right-[10%] lg:right-[14%]",
+    outX: 70,
+    outY: -30
   },
   {
-    icon: "/brand/icon-mobile.svg",
+    icon: "/brand/icon-mobile-green.svg",
     label: "Seamless Mobile\nExperiences",
-    position: "top-1/2 right-[8%] md:right-[10%] lg:right-[14%]",
+    position: "top-1/2 right-[1%] sm:right-[3%] md:right-[6%] lg:right-[9%]",
     baseTransform: "translateY(-50%)",
-    outX: 115,
+    outX: 90,
     outY: 0
   },
   {
-    icon: "/brand/icon-partner.svg",
+    icon: "/brand/icon-partner-green.svg",
     label: "Long-Term\nPartnership",
-    position: "bottom-14 md:bottom-16 lg:bottom-20 right-[12%] md:right-[16%] lg:right-[20%]",
-    outX: 85,
-    outY: 57
+    position: "bottom-4 sm:bottom-8 md:bottom-14 lg:bottom-16 right-[2%] sm:right-[6%] md:right-[10%] lg:right-[14%]",
+    outX: 80,
+    outY: 30
   }
 ];
 
 export const GoalsSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const stickyContentRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const centerTextRef = useRef<HTMLDivElement>(null);
-  const ringRef = useRef<HTMLDivElement>(null);
+  const ringGoldRef = useRef<HTMLDivElement>(null);
+  const ringGreenRef = useRef<HTMLDivElement>(null);
+  const glowGoldRef = useRef<HTMLDivElement>(null);
+  const glowGreenRef = useRef<HTMLDivElement>(null);
   const badgesRef = useRef<(HTMLDivElement | null)[]>([]);
   const isTicking = useRef(false);
   const rafId = useRef(0);
@@ -75,7 +79,7 @@ export const GoalsSection: React.FC = () => {
 
     function update() {
       isTicking.current = false;
-      if (!container || !headerRef.current || !centerTextRef.current || !ringRef.current) return;
+      if (!container || !headerRef.current || !centerTextRef.current || !stickyContentRef.current) return;
 
       const rect = container.getBoundingClientRect();
       const totalScroll = rect.height - window.innerHeight;
@@ -84,13 +88,11 @@ export const GoalsSection: React.FC = () => {
       const scrolled = clamp(-rect.top, 0, totalScroll);
       const ratio = scrolled / totalScroll;
       
-      // 1. SILKY SMOOTH GHOST FADE-OUT FOR TOP HEADER (Left and Right sides):
-      // Fades out gently as user arrives at center stop (ratio 0.0 -> 0.22)
+      // 1. TOP HEADER FADE-OUT (ratio 0.0 -> 0.22)
       const ghostProgress = clamp(ratio / 0.22, 0, 1);
-      // Smooth cubic ease for natural dissipation
       const easeGhost = ghostProgress * ghostProgress * (3 - 2 * ghostProgress);
       const headerOpacity = 1 - easeGhost;
-      const headerTranslateY = -28 * easeGhost;
+      const headerTranslateY = -24 * easeGhost;
       const headerBlur = 8 * easeGhost;
 
       headerRef.current.style.opacity = String(headerOpacity);
@@ -98,22 +100,55 @@ export const GoalsSection: React.FC = () => {
       headerRef.current.style.filter = `blur(${headerBlur}px)`;
       headerRef.current.style.pointerEvents = headerOpacity < 0.05 ? 'none' : 'auto';
 
-      // 2. CENTER ANIMATION (Ring rotation & badge blossoming):
-      // Starts smoothly once the text has gently faded out (ratio 0.22 -> 0.76)
+      // 2. CENTER ANIMATION (Ring rotation & grand expansion + Gold to Green color morph):
+      // Ratio 0.22 -> 0.74
       const animProgress = clamp((ratio - 0.22) / 0.52, 0, 1);
       const u = animProgress * animProgress * (3 - 2 * animProgress);
 
       centerTextRef.current.style.opacity = String(u);
+
+      // Grand circle expansion matching original scale
+      const ringScaleFactor = window.innerWidth < 640 ? 0.25 : 0.35;
+      const ringTransform = `rotate(${180 * u}deg) scale(${1 + ringScaleFactor * u})`;
       
-      ringRef.current.style.opacity = String(1 - 0.35 * u);
-      ringRef.current.style.transform = `rotate(${180 * u}deg) scale(${1 + 0.4 * u})`;
+      // Golden when small (u=0), morphs smoothly into brand green when expanded (u=1)
+      if (ringGoldRef.current && ringGreenRef.current) {
+        ringGoldRef.current.style.transform = ringTransform;
+        ringGreenRef.current.style.transform = ringTransform;
+        
+        ringGoldRef.current.style.opacity = String((1 - u) * (1 - 0.25 * u));
+        ringGreenRef.current.style.opacity = String(u * (1 - 0.25 * u));
+      }
+
+      // Ambient backlight morphs from Gold to Green
+      if (glowGoldRef.current && glowGreenRef.current) {
+        glowGoldRef.current.style.opacity = String((1 - u) * 0.4);
+        glowGreenRef.current.style.opacity = String(u * 0.45);
+      }
+
+      // Responsive badge float offset for mobile vs desktop
+      const isSmallMobile = window.innerWidth < 480;
+      const isTablet = window.innerWidth < 768;
+      const spread = isSmallMobile ? 0.4 : isTablet ? 0.65 : 1.0;
 
       GOAL_ITEMS.forEach((item, index) => {
         const el = badgesRef.current[index];
         if (!el) return;
         const base = item.baseTransform ? `${item.baseTransform} ` : '';
-        el.style.transform = `${base}translate(${item.outX * u}px, ${item.outY * u}px)`;
+        el.style.transform = `${base}translate(${item.outX * u * spread}px, ${item.outY * u * spread}px)`;
       });
+
+      // 3. PARALLAX DEPTH EXIT (Section scales down, blurs, and fades out toward next section):
+      // Begins when ratio moves from 0.78 to 0.98
+      const exitProgress = clamp((ratio - 0.78) / 0.20, 0, 1);
+      const easeExit = exitProgress * exitProgress * (3 - 2 * exitProgress);
+      const exitScale = 1 - 0.10 * easeExit;
+      const exitOpacity = 1 - easeExit;
+      const exitBlur = 8 * easeExit;
+
+      stickyContentRef.current.style.transform = `scale(${exitScale})`;
+      stickyContentRef.current.style.opacity = String(exitOpacity);
+      stickyContentRef.current.style.filter = `blur(${exitBlur}px)`;
     }
 
     function onScroll() {
@@ -135,129 +170,118 @@ export const GoalsSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="goals-section" className="relative w-full bg-[#141416]">
-      {/* MOBILE VIEW (Screens < 768px) */}
-      <div className="flex flex-col items-center gap-8 px-6 py-20 text-center sm:px-12 md:hidden">
-        <div>
-          <h2 className="font-display text-[28px] sm:text-[32px] leading-[1.2] font-semibold text-[#eee6c1]">
-            Marketing solutions that<br />work for you
-          </h2>
-          <p className="mt-4 text-base text-[#eee6c1]/80 max-w-lg mx-auto">
-            As one of the top digital marketing agencies in Toronto, we provide data-driven solutions designed to increase visibility, improve conversions, and help your business scale sustainably.
-          </p>
-        </div>
-
-        <div className="relative flex items-center justify-center my-4">
-          <div aria-hidden="true" className="absolute inset-0 m-auto h-48 w-48 rounded-full bg-[#ffaa01] opacity-35 blur-[90px]" />
-          <img 
-            src="/brand/goals-ring.svg" 
-            width={260} 
-            height={260} 
-            alt="" 
-            aria-hidden="true" 
-            className="relative z-10 select-none"
-          />
-        </div>
-
-        <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 max-w-xl mx-auto">
-          {GOAL_ITEMS.map((item) => (
-            <div 
-              key={item.label}
-              className="flex items-center gap-3.5 rounded-[24px] bg-[#d49925]/75 border border-[#ffaa01]/40 px-5 py-4 text-left backdrop-blur-md shadow-lg"
-            >
-              <img 
-                src={item.icon} 
-                alt="" 
-                width={24} 
-                height={24} 
-                className="shrink-0 brightness-0" 
-              />
-              <span className="font-display text-xs sm:text-sm font-semibold whitespace-pre-line text-[#141416] leading-snug">
-                {item.label}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* DESKTOP & TABLET STICKY SCROLL VIEW (Screens >= 768px) */}
+    <section id="goals-section" className="relative w-full bg-[#0a0a0a]">
+      {/* UNIFIED INTERACTIVE STICKY SCROLL VIEW (Seamless on both Mobile & Desktop) */}
       <div 
         ref={containerRef} 
-        className="relative hidden md:block h-[260vh]"
+        className="relative w-full h-[260vh] md:h-[300vh]"
       >
-        <div className="sticky top-0 flex h-screen w-full flex-col justify-between pt-24 sm:pt-28 pb-10 px-8 sm:px-14 lg:px-24 overflow-hidden">
+        <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
           
-          {/* Top Header: Left title + Right subtitle (Dissolves like a ghost on scroll) */}
+          {/* Inner content that scales down, blurs, and fades out as user scrolls */}
           <div 
-            ref={headerRef} 
-            className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center will-change-transform"
+            ref={stickyContentRef}
+            className="flex h-screen w-full flex-col justify-between pt-16 sm:pt-20 pb-8 sm:pb-16 px-4 sm:px-12 lg:px-20 will-change-transform"
           >
-            <h3 className="font-display text-[26px] md:text-[30px] lg:text-[36px] leading-[1.2] font-semibold text-[#eee6c1]">
-              Made with Goal.<br />Meant to be Useful.
-            </h3>
-            <p className="w-full text-sm sm:text-base text-[#eee6c1]/80 md:w-[32%] lg:w-[24%] leading-relaxed">
-              Our team will run everything for you and provide promised results and goals to help you grow.
-            </p>
-          </div>
-
-          {/* Center Canvas: Ring, Ambient Center Glow, Badges, and Cross-Fading Text */}
-          <div className="relative flex flex-1 items-center justify-center my-auto">
-            
-            {/* Center Golden Ambient Glow */}
+            {/* Top Header: Centered short tag + Headline & Subtitle */}
             <div 
-              aria-hidden="true" 
-              className="pointer-events-none absolute inset-0 m-auto h-72 w-72 rounded-full bg-[#ffaa01] opacity-40 blur-[130px]" 
-            />
-
-            {/* Central Rotating & Expanding Ring */}
-            <div ref={ringRef} className="relative z-0 select-none will-change-transform">
-              <img 
-                src="/brand/goals-ring.svg" 
-                alt="" 
-                width={460} 
-                height={460} 
-                className="select-none pointer-events-none max-w-[340px] md:max-w-[400px] lg:max-w-[460px]"
-              />
-            </div>
-
-            {/* Revealed Center Text (fades in when scrolled) */}
-            <div 
-              ref={centerTextRef} 
-              className="pointer-events-none absolute z-20 w-full max-w-xl px-6 text-center opacity-0 transition-opacity duration-150"
+              ref={headerRef} 
+              className="flex flex-col gap-2.5 sm:gap-5 will-change-transform max-w-6xl mx-auto w-full"
             >
-              <h2 className="font-display text-[30px] sm:text-[38px] lg:text-[44px] font-semibold leading-[1.2] text-[#eee6c1]">
-                Marketing solutions that<br />work for you
-              </h2>
-              <p className="mt-4 text-sm sm:text-base lg:text-lg text-[#eee6c1]/85 leading-relaxed">
-                As one of the top digital marketing agencies in Toronto, we provide data-driven solutions designed to increase visibility, improve conversions, and help your business scale sustainably.
-              </p>
-            </div>
-
-            {/* 6 Golden Amber Pill Badges matching reference */}
-            {GOAL_ITEMS.map((item, index) => (
-              <div 
-                key={item.label}
-                ref={(el) => { badgesRef.current[index] = el; }}
-                className={`absolute z-10 flex items-center gap-2.5 sm:gap-3.5 rounded-[30px] bg-[#d49925]/80 border border-[#ffaa01]/50 px-4 py-3 sm:px-5 sm:py-3.5 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.4)] will-change-transform ${item.position}`}
-              >
-                <img 
-                  src={item.icon} 
-                  alt="" 
-                  width={22} 
-                  height={22} 
-                  className="shrink-0 brightness-0 sm:w-6 sm:h-6" 
-                />
-                <span className="font-display text-[11px] sm:text-xs lg:text-sm font-semibold whitespace-pre-line text-[#141416] leading-snug">
-                  {item.label}
+              {/* Tag */}
+              <div className="text-center select-none">
+                <span className="font-display text-[11px] sm:text-sm font-semibold tracking-[0.25em] uppercase text-[#88E788]">
+                  Our Strategic Goals
                 </span>
               </div>
-            ))}
 
+              <div className="flex flex-col items-center text-center md:text-left md:flex-row md:items-center md:justify-between gap-3 sm:gap-6">
+                <div>
+                  <h3 className="font-display text-xl sm:text-2xl md:text-[32px] lg:text-[40px] leading-[1.2] md:leading-[1.15] font-bold text-white tracking-tight">
+                    Made with Clear Goals.<br className="hidden sm:inline" />
+                    <span className="text-[#88E788]"> Meant to Deliver Real Impact.</span>
+                  </h3>
+                </div>
+                <p className="w-full text-xs sm:text-sm md:text-base text-white/75 md:w-[36%] lg:w-[28%] leading-relaxed max-w-md md:max-w-none">
+                  We align advanced AI workflows, custom engineering, and data-backed strategies to achieve your business goals.
+                </p>
+              </div>
+            </div>
+
+            {/* Center Canvas: Full Grand Ring (Gold to Green), Ambient Glows, Badges, and Cross-Fading Text */}
+            <div className="relative flex flex-1 items-center justify-center my-auto w-full max-w-6xl mx-auto overflow-visible">
+              
+              {/* Center Ambient Glows: Gold when small, Green when expanded */}
+              <div 
+                ref={glowGoldRef}
+                aria-hidden="true" 
+                className="pointer-events-none absolute inset-0 m-auto h-48 w-48 sm:h-80 sm:w-80 rounded-full bg-[#FFAA01] opacity-40 blur-[90px] sm:blur-[140px] will-change-transform" 
+              />
+              <div 
+                ref={glowGreenRef}
+                aria-hidden="true" 
+                className="pointer-events-none absolute inset-0 m-auto h-48 w-48 sm:h-80 sm:w-80 rounded-full bg-[#88E788] opacity-0 blur-[90px] sm:blur-[140px] will-change-transform" 
+              />
+
+              {/* Central Rotating & Expanding Rings */}
+              <div className="relative z-0 select-none flex items-center justify-center">
+                {/* Golden Ring */}
+                <div ref={ringGoldRef} className="select-none will-change-transform flex items-center justify-center">
+                  <img 
+                    src="/brand/goals-ring.svg" 
+                    alt="" 
+                    width={480} 
+                    height={480} 
+                    className="select-none pointer-events-none w-[230px] sm:w-[340px] md:w-[440px] lg:w-[480px] max-w-none"
+                  />
+                </div>
+                {/* Green Ring */}
+                <div ref={ringGreenRef} className="absolute inset-0 select-none opacity-0 will-change-transform flex items-center justify-center">
+                  <img 
+                    src="/brand/goals-ring-green.svg" 
+                    alt="" 
+                    width={480} 
+                    height={480} 
+                    className="select-none pointer-events-none w-[230px] sm:w-[340px] md:w-[440px] lg:w-[480px] max-w-none"
+                  />
+                </div>
+              </div>
+
+              {/* Revealed Center Text */}
+              <div 
+                ref={centerTextRef} 
+                className="pointer-events-none absolute z-20 w-full max-w-xl px-4 text-center opacity-0 transition-opacity duration-150"
+              >
+                <h2 className="font-display text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.2] text-white tracking-tight">
+                  Engineered for Results<br />that Work for You
+                </h2>
+              </div>
+
+              {/* 6 Floating Badges with Responsive Spacing & Sizing */}
+              {GOAL_ITEMS.map((item, index) => (
+                <div 
+                  key={item.label}
+                  ref={(el) => { badgesRef.current[index] = el; }}
+                  className={`absolute z-10 flex items-center gap-2 sm:gap-3 rounded-[20px] sm:rounded-[30px] bg-[#161616]/92 border border-[#88E788]/40 px-2.5 py-2 sm:px-4 sm:py-3 md:px-5 md:py-3.5 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.6)] will-change-transform ${item.position}`}
+                >
+                  <img 
+                    src={item.icon} 
+                    alt="" 
+                    width={22} 
+                    height={22} 
+                    className="shrink-0 w-3.5 h-3.5 sm:w-5 sm:h-5 md:w-6 md:h-6" 
+                  />
+                  <span className="font-display text-[9px] sm:text-xs lg:text-sm font-semibold whitespace-pre-line text-white leading-tight">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+
+            </div>
+
+            {/* Bottom spacer */}
+            <div className="h-2 sm:h-6" aria-hidden="true" />
           </div>
-
-          {/* Bottom spacing to ensure balanced centering */}
-          <div className="h-4 sm:h-6" aria-hidden="true" />
-
         </div>
       </div>
     </section>

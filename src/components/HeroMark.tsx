@@ -45,16 +45,16 @@ export const HeroMark: React.FC = () => {
       {/* Ambient Radial Backlight */}
       <div 
         aria-hidden="true" 
-        className="pointer-events-none absolute inset-0 m-auto h-56 w-56 rounded-full bg-[#ffaa01] opacity-35 blur-[160px]" 
+        className="pointer-events-none absolute inset-0 m-auto h-56 w-56 rounded-full bg-[#88E788] opacity-20 blur-[160px]" 
       />
       
       {/* 3D Glass Emblem with Mouse Parallax */}
       <img 
         ref={markRef}
-        src="/brand/glass-mark.png" 
+        src="/brand/hero-mark-new.png" 
         alt="Digital 3D Mark" 
-        width={2673}
-        height={2645}
+        width={1254}
+        height={1254}
         className="relative z-10 h-full w-full object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.8)] transition-transform duration-75 will-change-transform"
         loading="eager"
       />

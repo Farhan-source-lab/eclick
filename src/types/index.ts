@@ -55,6 +55,8 @@ export interface Testimonial {
   role: string;
   company: string;
   rating: number;
+  date?: string;
+  verified?: boolean;
   logo?: string;
 }
 

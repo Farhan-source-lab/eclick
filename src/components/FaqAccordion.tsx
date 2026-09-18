@@ -20,10 +20,10 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items, className = '
         return (
           <div
             key={idx}
-            className={`rounded-2xl border transition-all duration-300 ${
+            className={`rounded-[20px] border backdrop-blur-xl transition-all duration-300 ${
               isOpen
-                ? 'border-(--color-cta) bg-(--color-surface) shadow-sm'
-                : 'border-(--color-border) bg-(--color-surface)/40 hover:border-(--color-cta)/40'
+                ? 'border-[#88E788]/50 bg-[#141416]/90 shadow-lg shadow-[#88E788]/5'
+                : 'border-white/10 bg-[#141416]/40 hover:border-white/20 hover:bg-[#141416]/70'
             }`}
           >
             <button
@@ -31,12 +31,14 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items, className = '
               className="flex w-full items-center justify-between p-6 text-left"
               aria-expanded={isOpen}
             >
-              <span className="font-display text-base font-semibold text-foreground sm:text-lg">
+              <span className="font-display text-base font-semibold text-white sm:text-lg">
                 {item.q}
               </span>
               <span
-                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-(--color-border) text-sm font-bold transition-transform duration-300 ${
-                  isOpen ? 'rotate-45 border-(--color-cta) text-(--color-cta)' : 'text-foreground/60'
+                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-sm font-bold transition-all duration-300 ${
+                  isOpen
+                    ? 'rotate-45 border-[#88E788]/60 text-[#88E788] bg-[#88E788]/10'
+                    : 'border-white/10 text-white/60 bg-white/5'
                 }`}
               >
                 +
@@ -49,7 +51,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items, className = '
               }`}
             >
               <div className="overflow-hidden">
-                <p className="px-6 pb-6 text-sm leading-relaxed text-foreground/80 sm:text-base">
+                <p className="px-6 pb-6 text-sm leading-relaxed text-white/70 sm:text-base">
                   {item.a}
                 </p>
               </div>

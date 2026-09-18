@@ -17,7 +17,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath = '/', onOpenMobileM
   ];
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 mx-[5%] mt-2 flex items-center justify-between rounded-[30px] p-2 backdrop-blur-xl bg-background/30 border border-foreground/10 transition-all duration-300">
+    <header className="fixed inset-x-0 top-0 z-50 mx-[5%] mt-2 flex items-center justify-between rounded-[30px] p-2 backdrop-blur-xl bg-[#141416]/70 border border-white/10 transition-all duration-300 shadow-2xl">
       {/* Sleek Logo Mark on Left */}
       <a className="flex shrink-0 items-center px-2" aria-label="Eclick Tech Solutions home" href="/">
         <img 
@@ -32,8 +32,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPath = '/', onOpenMobileM
       {/* Desktop Navigation Links */}
       <div className="hidden items-center gap-6 lg:flex">
         <a 
-          className={`flex items-center gap-1 font-display text-xs uppercase transition-colors ${
-            currentPath === '/' ? 'text-foreground font-semibold' : 'text-foreground/75 hover:text-(--color-accent)'
+          className={`flex items-center gap-1 font-display text-xs uppercase tracking-wider transition-colors ${
+            currentPath === '/' ? 'text-white font-semibold' : 'text-white/70 hover:text-[#88E788]'
           }`} 
           href="/"
         >
@@ -49,8 +49,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPath = '/', onOpenMobileM
           <button 
             type="button" 
             aria-expanded={servicesOpen}
-            className={`cursor-pointer flex items-center gap-1 font-display text-xs uppercase transition-colors ${
-              currentPath.startsWith('/services') ? 'text-foreground font-semibold' : 'text-foreground/75 hover:text-(--color-accent)'
+            className={`cursor-pointer flex items-center gap-1 font-display text-xs uppercase tracking-wider transition-colors ${
+              currentPath.startsWith('/services') ? 'text-white font-semibold' : 'text-white/70 hover:text-[#88E788]'
             }`}
           >
             Services
@@ -68,8 +68,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPath = '/', onOpenMobileM
                     href={s.href}
                     className="group block rounded-[14px] p-2.5 transition-colors hover:bg-white/[0.08]"
                   >
-                    <div className="font-display text-xs font-semibold text-[#eee6c1] group-hover:text-[#ffaa01] transition-colors">{s.title}</div>
-                    <div className="text-[11px] text-[#b7af98] mt-0.5 leading-snug">{s.desc}</div>
+                    <div className="font-display text-xs font-semibold text-white group-hover:text-[#88E788] transition-colors">{s.title}</div>
+                    <div className="text-[11px] text-white/60 mt-0.5 leading-snug">{s.desc}</div>
                   </a>
                 ))}
               </div>
@@ -78,8 +78,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPath = '/', onOpenMobileM
         </div>
 
         <a 
-          className={`flex items-center gap-1 font-display text-xs uppercase transition-colors ${
-            currentPath.startsWith('/projects') ? 'text-foreground font-semibold' : 'text-foreground/75 hover:text-(--color-accent)'
+          className={`flex items-center gap-1 font-display text-xs uppercase tracking-wider transition-colors ${
+            currentPath.startsWith('/projects') ? 'text-white font-semibold' : 'text-white/70 hover:text-[#88E788]'
           }`} 
           href="/projects"
         >
@@ -87,8 +87,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPath = '/', onOpenMobileM
         </a>
 
         <a 
-          className={`flex items-center gap-1 font-display text-xs uppercase transition-colors ${
-            currentPath === '/about' ? 'text-foreground font-semibold' : 'text-foreground/75 hover:text-(--color-accent)'
+          className={`flex items-center gap-1 font-display text-xs uppercase tracking-wider transition-colors ${
+            currentPath === '/about' ? 'text-white font-semibold' : 'text-white/70 hover:text-[#88E788]'
           }`} 
           href="/about"
         >
@@ -96,41 +96,44 @@ export const Header: React.FC<HeaderProps> = ({ currentPath = '/', onOpenMobileM
         </a>
 
         <a 
-          className={`flex items-center gap-1 font-display text-xs uppercase transition-colors ${
-            currentPath.startsWith('/blog') ? 'text-foreground font-semibold' : 'text-foreground/75 hover:text-(--color-accent)'
+          className={`flex items-center gap-1 font-display text-xs uppercase tracking-wider transition-colors ${
+            currentPath.startsWith('/blog') ? 'text-white font-semibold' : 'text-white/70 hover:text-[#88E788]'
           }`} 
           href="/blog"
         >
           Blog
         </a>
 
+        {/* Single unified CTA button: Get In Touch with animated arrow */}
         <a 
-          href="/contact" 
-          className={`flex items-center gap-1 font-display text-xs uppercase transition-colors ${
-            currentPath === '/contact' ? 'text-foreground font-semibold' : 'text-foreground/75 hover:text-(--color-accent)'
-          }`}
+          href="/contact"
+          className="group relative inline-flex h-10 items-center justify-center rounded-full bg-[#88E788] px-5 font-display text-xs uppercase tracking-wider font-semibold text-[#0a0a0a] transition-all duration-300 hover:bg-[#88E788]/90 hover:shadow-[0_0_20px_rgba(136,231,136,0.35)]"
         >
-          Client Portal
-        </a>
+          <div className="flex items-center gap-2">
+            {/* Rolling text with exact 40px line height */}
+            <div className="h-10 overflow-hidden">
+              <div className="flex flex-col transition-transform duration-300 ease-out group-hover:-translate-y-10">
+                <span className="flex h-10 items-center whitespace-nowrap">Get In Touch</span>
+                <span className="flex h-10 items-center whitespace-nowrap" aria-hidden="true">Get In Touch</span>
+              </div>
+            </div>
 
-        {/* Free Estimate Pill + Circular Icon Button matching Image 1 */}
-        <a className="group relative flex items-center gap-1 overflow-hidden" href="/contact">
-          <span className="inline-flex h-10 items-start justify-center overflow-hidden rounded-full bg-(--color-accent-soft) px-4 font-display text-xs uppercase text-(--color-ink) font-semibold">
-            <span className="grid text-center leading-10 transition-transform duration-300 ease-out group-hover:-translate-y-1/2">
-              <span>Free estimate</span>
-              <span aria-hidden="true">Free estimate</span>
+            {/* Micro-animated diagonal arrow directly beside text */}
+            <span className="relative flex h-3.5 w-3.5 items-center justify-center overflow-hidden shrink-0" aria-hidden="true">
+              <svg 
+                viewBox="0 0 12 12" 
+                className="absolute h-3 w-3 stroke-[#0a0a0a] stroke-[2.2] fill-none transition-transform duration-300 ease-out group-hover:translate-x-3 group-hover:-translate-y-3"
+              >
+                <path d="M2 10L10 2M10 2H4M10 2V8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <svg 
+                viewBox="0 0 12 12" 
+                className="absolute h-3 w-3 stroke-[#0a0a0a] stroke-[2.2] fill-none -translate-x-3 translate-y-3 transition-transform duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0"
+              >
+                <path d="M2 10L10 2M10 2H4M10 2V8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </span>
-          </span>
-          <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-(--color-accent-soft) p-2">
-            <img 
-              alt="" 
-              loading="lazy" 
-              width="20" 
-              height="16" 
-              className="h-3.5 w-auto object-contain filter brightness-0" 
-              src="/brand/letter-a-logo.png" 
-            />
-          </span>
+          </div>
         </a>
       </div>
 
@@ -140,7 +143,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath = '/', onOpenMobileM
           onClick={onOpenMobileMenu}
           type="button" 
           aria-label="Open menu" 
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-(--color-accent-soft) text-(--color-ink)"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
         >
           <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
             <path d="M1 1h16M1 7h16M1 13h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />

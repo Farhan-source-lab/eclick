@@ -6,10 +6,10 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#eee6c1] text-[#141416] transition-colors">
-      <div className="px-6 py-14 sm:px-16 lg:px-24 max-w-7xl mx-auto">
-        {/* Heading from Reference Site */}
-        <h2 className="mb-10 font-display text-3xl leading-[1.2] sm:text-4xl lg:w-3/5 lg:text-[48px] text-[#141416]">
+    <footer className="relative mt-16 mx-3 sm:mx-6 lg:mx-10 rounded-t-[44px] sm:rounded-t-[64px] bg-[#eee6c1] text-[#141416] border-t-2 border-x-2 border-[#141416]/15 shadow-[0_-25px_60px_-15px_rgba(0,0,0,0.8),inset_0_2px_4px_rgba(255,255,255,0.6)] overflow-hidden">
+      <div className="px-6 pt-16 pb-14 sm:px-16 sm:pt-24 lg:px-24 max-w-7xl mx-auto">
+        {/* Heading from Reference Site with Editorial Serif */}
+        <h2 className="mb-10 font-display text-3xl leading-[1.15] sm:text-4xl lg:w-3/5 lg:text-[48px] text-[#141416] font-bold tracking-tight">
           Is there a fascinating project brewing in your mind?
         </h2>
 
@@ -20,15 +20,17 @@ export const Footer: React.FC = () => {
               href="mailto:info@eclicktechsolutions.com?subject=Project%20request" 
               className="flex items-center gap-2 shrink-0 group"
             >
-              <img 
-                alt="" 
-                loading="lazy" 
-                width="22" 
-                height="22" 
-                src="/brand/icon-send.png" 
-                className="brightness-0" 
-              />
-              <span className="font-display text-sm sm:text-base text-[#141416] underline decoration-[#141416]/40 group-hover:decoration-[#ffaa01] transition-colors">
+              <svg 
+                viewBox="0 0 24 24" 
+                className="h-5 w-5 fill-none stroke-[#141416] stroke-[1.8] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span className="font-display text-sm sm:text-base text-[#141416] underline decoration-[#141416]/40 group-hover:decoration-[#88E788] transition-colors">
                 info@eclicktechsolutions.com
               </span>
             </a>

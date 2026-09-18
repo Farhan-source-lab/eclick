@@ -3,7 +3,6 @@ import { Header } from './components/Header';
 import { MobileNav } from './components/MobileNav';
 import { Footer } from './components/Footer';
 import { SmoothScroll } from './components/SmoothScroll';
-import { ThemeToggle } from './components/ThemeToggle';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -117,11 +116,6 @@ export const App: React.FC = () => {
         </div>
 
         <Footer />
-
-        {/* Floating Theme Toggle Switch (matches reference screenshot) */}
-        <div className="fixed bottom-6 right-6 z-50">
-          <ThemeToggle variant="pill" />
-        </div>
       </div>
     </SmoothScroll>
   );

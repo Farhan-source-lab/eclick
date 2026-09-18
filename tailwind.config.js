@@ -25,11 +25,17 @@ export default {
         'ink-border': 'var(--color-ink-border)',
         background: 'var(--color-bg)',
         foreground: 'var(--color-text)',
+        cream: '#eee6c1',
+        'cream-dark': '#141416',
+        green: '#88E788',
+        'green-soft': 'rgba(136, 231, 136, 0.15)',
       },
       fontFamily: {
-        display: ['"Krona One"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        sans: ['"Exo 2"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        body: ['"Exo 2"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Cinzel"', '"Instrument Serif"', 'Georgia', 'serif'],
+        serif: ['"Instrument Serif"', '"Cinzel"', 'Georgia', 'serif'],
+        sans: ['"Mona Sans"', '"Exo 2"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        body: ['"Mona Sans"', '"Exo 2"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['"Geist Mono"', 'ui-monospace', 'monospace'],
       },
       keyframes: {
         marquee: {

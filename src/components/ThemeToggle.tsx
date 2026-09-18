@@ -26,7 +26,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ variant = 'pill' }) =>
       <button
         onClick={toggleTheme}
         type="button"
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-(--color-border) bg-(--color-surface) text-foreground transition-all duration-300 hover:border-(--color-cta) hover:text-(--color-cta)"
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-[#141416] text-white transition-all duration-300 hover:border-[#88E788] hover:text-[#88E788]"
         title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
         aria-label="Toggle visual theme"
       >
@@ -49,13 +49,13 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ variant = 'pill' }) =>
     <button
       onClick={toggleTheme}
       type="button"
-      className="group relative flex h-7 w-[52px] items-center rounded-full border border-foreground/30 bg-background/80 p-0.5 backdrop-blur-md transition-all duration-300 hover:border-(--color-cta) focus:outline-none"
+      className="group relative flex h-7 w-[52px] items-center rounded-full border border-white/20 bg-white/5 p-0.5 backdrop-blur-md transition-all duration-300 hover:border-[#88E788] focus:outline-none"
       title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
       aria-label="Toggle visual theme"
     >
       <span
         className={`inline-block h-5 w-5 transform rounded-full shadow-md transition-transform duration-300 group-hover:scale-105 ${
-          theme === 'dark' ? 'translate-x-6 bg-(--color-accent-soft)' : 'translate-x-0.5 bg-foreground'
+          theme === 'dark' ? 'translate-x-6 bg-[#88E788]' : 'translate-x-0.5 bg-white'
         }`}
       />
     </button>
