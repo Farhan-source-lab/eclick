@@ -87,7 +87,7 @@ export const HomeContactSection: React.FC<HomeContactSectionProps> = ({
                   <a 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    href="#" 
+                    href="https://www.facebook.com/profile.php?id=61590183133759" 
                     aria-label="Facebook"
                     className="transition-opacity hover:opacity-80"
                   >
@@ -102,7 +102,7 @@ export const HomeContactSection: React.FC<HomeContactSectionProps> = ({
                   <a 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    href="#" 
+                    href="https://www.instagram.com/eclick.techsolutions/" 
                     aria-label="Instagram"
                     className="transition-opacity hover:opacity-80"
                   >
@@ -117,7 +117,7 @@ export const HomeContactSection: React.FC<HomeContactSectionProps> = ({
                   <a 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    href="https://www.linkedin.com" 
+                    href="https://www.linkedin.com/company/eclicktechsolutions/posts/?feedView=all" 
                     aria-label="LinkedIn"
                     className="transition-opacity hover:opacity-80"
                   >
@@ -127,6 +127,21 @@ export const HomeContactSection: React.FC<HomeContactSectionProps> = ({
                       width="26" 
                       height="26" 
                       src="/brand/icon-linkedin-circle.svg" 
+                    />
+                  </a>
+                  <a 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    href="https://wa.me/919032466511" 
+                    aria-label="WhatsApp"
+                    className="transition-opacity hover:opacity-80"
+                  >
+                    <img 
+                      alt="WhatsApp" 
+                      loading="lazy" 
+                      width="26" 
+                      height="26" 
+                      src="/brand/icon-whatsapp-circle.svg" 
                     />
                   </a>
                 </div>
@@ -154,6 +169,10 @@ export const HomeContactSection: React.FC<HomeContactSectionProps> = ({
 
                   {/* Phone Numbers */}
                   <div className="mt-2 flex flex-col gap-1.5 text-xs sm:text-sm text-[#b7af98]">
+                    <p className="flex items-center gap-2">
+                      <span className="text-[#88E788] font-semibold">WA:</span>
+                      <a href="https://wa.me/919032466511" target="_blank" rel="noopener noreferrer" className="hover:text-[#eee6c1] transition-colors font-medium">+91 90324 66511</a>
+                    </p>
                     <p className="flex items-center gap-2">
                       <span className="text-[#88E788] font-semibold">IND:</span>
                       <a href="tel:+918919248052" className="hover:text-[#eee6c1] transition-colors">+91 89192 48052</a>
@@ -333,6 +352,10 @@ export const HomeContactSection: React.FC<HomeContactSectionProps> = ({
                 {/* Phone Numbers */}
                 <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#b7af98]">
                   <p className="flex items-center gap-1.5">
+                    <span className="text-[#88E788] font-semibold">WA:</span>
+                    <a href="https://wa.me/919032466511" target="_blank" rel="noopener noreferrer" className="hover:text-[#eee6c1] font-medium">+91 90324 66511</a>
+                  </p>
+                  <p className="flex items-center gap-1.5">
                     <span className="text-[#88E788] font-semibold">IND:</span>
                     <a href="tel:+918919248052" className="hover:text-[#eee6c1]">+91 89192 48052</a>
                   </p>
@@ -352,14 +375,17 @@ export const HomeContactSection: React.FC<HomeContactSectionProps> = ({
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <a target="_blank" rel="noopener noreferrer" href="#" aria-label="Facebook">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=61590183133759" aria-label="Facebook">
                       <img alt="Facebook" width="22" height="22" src="/brand/icon-facebook-circle.svg" />
                     </a>
-                    <a target="_blank" rel="noopener noreferrer" href="#" aria-label="Instagram">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/eclick.techsolutions/" aria-label="Instagram">
                       <img alt="Instagram" width="22" height="22" src="/brand/icon-instagram-circle.svg" />
                     </a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com" aria-label="LinkedIn">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/eclicktechsolutions/posts/?feedView=all" aria-label="LinkedIn">
                       <img alt="LinkedIn" width="22" height="22" src="/brand/icon-linkedin-circle.svg" />
+                    </a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://wa.me/919032466511" aria-label="WhatsApp">
+                      <img alt="WhatsApp" width="22" height="22" src="/brand/icon-whatsapp-circle.svg" />
                     </a>
                   </div>
                 </div>

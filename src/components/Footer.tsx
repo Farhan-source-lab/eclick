@@ -36,6 +36,11 @@ export const Footer: React.FC = () => {
             </a>
             <span className="hidden sm:inline text-[#141416]/30">•</span>
             <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-[#141416]/75">
+              <a href="https://wa.me/919032466511" target="_blank" rel="noopener noreferrer" className="hover:text-[#141416] transition-colors flex items-center gap-1 font-medium">
+                <span>+91 90324 66511</span>
+                <span className="text-[10px] text-[#0a820a] font-bold bg-[#88E788]/40 px-1.5 py-0.5 rounded-full">WA</span>
+              </a>
+              <span>•</span>
               <a href="tel:+918919248052" className="hover:text-[#141416] transition-colors">+91 89192 48052 (IND)</a>
               <span>•</span>
               <a href="tel:+966507701476" className="hover:text-[#141416] transition-colors">+966 50 770 1476 (KSA)</a>
@@ -65,17 +70,17 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between pt-2 text-[#141416]">
           {/* Social Links */}
           <div className="flex items-center gap-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
+            <a href="https://www.facebook.com/profile.php?id=61590183133759" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="opacity-80 hover:opacity-100 transition-opacity">
               <img alt="Facebook" width="20" height="20" src="/brand/icon-facebook-circle.svg" className="brightness-0" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
+            <a href="https://www.instagram.com/eclick.techsolutions/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="opacity-80 hover:opacity-100 transition-opacity">
               <img alt="Instagram" width="20" height="20" src="/brand/icon-instagram-circle.svg" className="brightness-0" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
+            <a href="https://www.linkedin.com/company/eclicktechsolutions/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="opacity-80 hover:opacity-100 transition-opacity">
               <img alt="LinkedIn" width="20" height="20" src="/brand/icon-linkedin-circle.svg" className="brightness-0" />
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
-              <img alt="YouTube" width="20" height="20" src="/brand/icon-youtube-circle.svg" className="brightness-0" />
+            <a href="https://wa.me/919032466511" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="opacity-80 hover:opacity-100 transition-opacity">
+              <img alt="WhatsApp" width="20" height="20" src="/brand/icon-whatsapp-circle.svg" className="brightness-0" />
             </a>
           </div>
 
